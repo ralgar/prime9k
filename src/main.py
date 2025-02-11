@@ -1,11 +1,3 @@
-# Brute Force Primality Checker
-# Checks a given number for primality, using a multi-threaded,
-#  brute force 6k +/- 1 algorithm.
-#
-# Copyright (c) 2025 Ryan Algar
-# This work is released to the public domain under CC0 1.0
-
-
 import sys
 
 from application import Application

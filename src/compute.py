@@ -24,7 +24,7 @@ class GPUCompute():
 
         n = int(n)
 
-        # Handle simple cases directly
+        # Handle simple cases directly.
         if n < 2:
             return False
         if n in (2, 3):
@@ -38,12 +38,12 @@ class GPUCompute():
         # Convert n to a 64-bit cp integer for GPU computations.
         n_cp = cp.int64(n)
 
-        # Process candidate divisors in batches of 1,000,000
+        # Process candidate divisors in batches of 1,000,000.
         batch_size = 1_000_000
         offset = 0
 
         while True:
-            # Create a batch of indices on the GPU
+            # Create a batch of indices on the GPU.
             indices = cp.arange(offset, offset + batch_size, dtype=cp.int64)
 
             # For each index i, compute k = (i // 2) + 1.
@@ -62,7 +62,7 @@ class GPUCompute():
                 break
 
             # Check in parallel: if any candidate divides n exactly, then n is composite.
-            # (Using cp.any(...).item() converts the result to a Python bool.)
+            # Using cp.any().item() converts the result to a Python bool.
             if cp.any(n_cp % valid_candidates == 0).item():
                 return False
 
