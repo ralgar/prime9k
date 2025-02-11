@@ -1,5 +1,6 @@
 import argparse
 import logging
+import sys
 
 from compute_gpu import ComputeGPU
 
@@ -38,8 +39,8 @@ class Application:
         """
 
         parser = argparse.ArgumentParser(description=(APPLICATION_NAME))
-        parser.add_argument('INTEGER', type=str, help='A single integer to test (max length: 20)')
-        parser.add_argument('-v', '--verbose', action='count', default=0, help='Increase verbosity (e.g., -v, -vv, -vvv)')
+        parser.add_argument('INTEGER', type=str, help=f'a single integer to test (max value: {sys.maxsize})')
+        parser.add_argument('-v', '--verbose', action='count', default=0, help='increase verbosity level (-v, -vv, -vvv)')
 
         return parser.parse_args()
 
