@@ -15,11 +15,9 @@ dependencies = [
 ]
 
 [project.optional-dependencies]
-dev = [
-    "sympy"
-]
 test = [
-    "pytest"
+    "pytest",
+    "sympy"
 ]
 
 [project.scripts]
