@@ -1,0 +1,5 @@
+# Exclude Python and pip runtime files
+venv/
+__pycache__/
+build/
+*.egg-info/
