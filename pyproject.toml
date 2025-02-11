@@ -21,7 +21,7 @@ test = [
 ]
 
 [project.scripts]
-prime-9000 = "main:main"
+prime9k = "main:main"
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
