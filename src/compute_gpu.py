@@ -1,18 +1,19 @@
-import logging
 import math
 
 import cupy as cp
 
+from compute_base import ComputeBase
 
-class ComputeGPU():
 
-    def __init__(self):
-        pass
+class ComputeGPU(ComputeBase):
+    """
+    Derived class for a compute system.
+    """
 
     def is_prime(self, n: int) -> bool:
         """
         Test whether n is prime using a GPU-parallelized 6k±1 algorithm.
-        This function uses cp to generate batches of candidate divisors
+        This function uses CuPy to generate batches of candidate divisors
         (of the form 6k-1 and 6k+1) and checks in parallel if any divide n.
 
         Parameters:

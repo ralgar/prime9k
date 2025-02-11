@@ -2,6 +2,9 @@ import argparse
 import logging
 import sys
 
+import cupy
+
+from compute_cpu import ComputeCPU
 from compute_gpu import ComputeGPU
 
 
@@ -14,7 +17,7 @@ class Application:
 
         args = self.parse_args()
 
-        # Basic logging setup
+        # Basic logging setup.
         log_level = logging.ERROR
         if args.verbose == 1:
             log_level = logging.WARN
@@ -26,7 +29,12 @@ class Application:
         logging.basicConfig(level=log_level,
                             format=f"[%(asctime)s] [{APPLICATION_NAME}] [%(levelname)s] %(message)s")
 
-        self._compute = ComputeGPU()
+        # Auto-select compute system, or allow override.
+        logging.info(f"Using device: {args.device.upper()}")
+        if args.device == 'gpu' and cupy.cuda.is_available():
+            self._compute = ComputeGPU()
+        else:
+            self._compute = ComputeCPU()
 
         if args.INTEGER:
             self._integer = args.INTEGER
@@ -40,6 +48,7 @@ class Application:
 
         parser = argparse.ArgumentParser(description=(APPLICATION_NAME))
         parser.add_argument('INTEGER', type=str, help=f'a single integer to test (max value: {sys.maxsize})')
+        parser.add_argument('-d', '--device', choices=['cpu', 'gpu'], default='gpu', help='override selected compute device')
         parser.add_argument('-v', '--verbose', action='count', default=0, help='increase verbosity level (-v, -vv, -vvv)')
 
         return parser.parse_args()
