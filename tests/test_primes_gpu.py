@@ -3,10 +3,10 @@ from typing import List
 import pytest
 
 from common.generators import generate_primes, generate_random_number
-import compute
+from compute_gpu import ComputeGPU
 
 
-gpu = compute.GPUCompute()
+gpu = ComputeGPU()
 
 
 def setup_data() -> List[int]:

@@ -4,7 +4,7 @@ import math
 import cupy as cp
 
 
-class GPUCompute():
+class ComputeGPU():
 
     def __init__(self):
         pass

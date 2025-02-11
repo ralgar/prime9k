@@ -1,7 +1,7 @@
 import argparse
 import logging
 
-from compute import GPUCompute
+from compute_gpu import ComputeGPU
 
 
 APPLICATION_NAME = "Prime Tester 9000"
@@ -25,7 +25,7 @@ class Application:
         logging.basicConfig(level=log_level,
                             format=f"[%(asctime)s] [{APPLICATION_NAME}] [%(levelname)s] %(message)s")
 
-        self._compute = GPUCompute()
+        self._compute = ComputeGPU()
 
         if args.INTEGER:
             self._integer = args.INTEGER
