@@ -18,12 +18,8 @@ class Application:
         args = self.parse_args()
 
         # Basic logging setup.
-        log_level = logging.ERROR
-        if args.verbose == 1:
-            log_level = logging.WARN
-        if args.verbose == 2:
-            log_level = logging.INFO
-        if args.verbose == 3:
+        log_level = logging.INFO
+        if args.verbose:
             log_level = logging.DEBUG
 
         logging.basicConfig(level=log_level,
@@ -49,7 +45,7 @@ class Application:
         parser = argparse.ArgumentParser(description=(APPLICATION_NAME))
         parser.add_argument('INTEGER', type=str, help=f'a single integer to test (max value: {sys.maxsize})')
         parser.add_argument('-d', '--device', choices=['cpu', 'gpu'], default='gpu', help='override selected compute device')
-        parser.add_argument('-v', '--verbose', action='count', default=0, help='increase verbosity level (-v, -vv, -vvv)')
+        parser.add_argument('-v', '--verbose', action='store_true', help='show more detailed logs')
 
         return parser.parse_args()
 

@@ -1,15 +1,10 @@
 from abc import ABC, abstractmethod
-import logging
 
 
 class ComputeBase(ABC):
     """
     Abstract base class for a compute system.
     """
-
-    def __init__(self):
-        logging.info("Compute initialized")
-        pass
 
     @abstractmethod
     def is_prime(self, n: int) -> bool:

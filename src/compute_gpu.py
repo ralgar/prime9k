@@ -1,3 +1,4 @@
+import logging
 import math
 
 import cupy as cp
@@ -9,6 +10,9 @@ class ComputeGPU(ComputeBase):
     """
     Derived class for a compute system.
     """
+
+    def __init__(self):
+        logging.info(f'Using CuPy version: {cp.__version__}')
 
     def is_prime(self, n: int) -> bool:
         """
