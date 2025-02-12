@@ -8,7 +8,7 @@ from compute_cpu import ComputeCPU
 from compute_gpu import ComputeGPU
 
 
-APPLICATION_NAME = "Prime Tester 9000"
+APPLICATION_NAME = "Primality Tester 9000"
 
 
 class Application:

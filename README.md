@@ -1,4 +1,4 @@
-# Prime Tester 9000
+# Primality Tester 9000
 
 ## Overview
 
