@@ -8,6 +8,11 @@ A brute force primality testing program written in Python. It uses a 6k +/- 1
 
 ## Getting Started
 
+### Requirements
+
+- `python>=3.8,<3.13`
+- `pip`
+
 ### Installation
 
 1. Clone this repository, and change directory.
@@ -17,10 +22,11 @@ A brute force primality testing program written in Python. It uses a 6k +/- 1
    cd prime9k
    ```
 
-1. Create a virtual environment using your preferred method.
+1. Create and activate a virtual environment.
 
    ```sh
    python -m venv venv
+   source venv/bin/activate
    ```
 
 1. Install the Python package.
