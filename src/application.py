@@ -22,7 +22,7 @@ class Application:
         if args.verbose:
             log_level = logging.DEBUG
 
-        logging.basicConfig(level=log_level,
+        logging.basicConfig(level=log_level, force=True, stream=sys.stdout,
                             format=f"[%(asctime)s] [{APPLICATION_NAME}] [%(levelname)s] %(message)s")
 
         # Auto-select compute system, or allow override.
@@ -51,7 +51,7 @@ class Application:
 
     def run(self) -> None:
         """
-        Execute the main logic.
+        Execute the selected compute method and display the result.
         """
 
         logging.debug(f"Beginning primality test for '{self._integer}'")
