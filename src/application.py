@@ -1,6 +1,7 @@
 import argparse
 import logging
 import sys
+import time
 
 import cupy
 
@@ -54,9 +55,14 @@ class Application:
         Execute the selected compute method and display the result.
         """
 
-        logging.debug(f"Beginning primality test for '{self._integer}'")
+        logging.info(f"Beginning primality test for '{self._integer}'")
+
+        start_time = time.perf_counter()
         is_prime = self._compute.is_prime(self._integer)
-        logging.debug(f"Completed primality test for '{self._integer}'")
+        finish_time = time.perf_counter()
+
+        delta_time = finish_time - start_time
+        logging.info(f"Test completed in {delta_time} seconds")
 
         if is_prime:
             print(f"\nRESULT: {self._integer} is a prime number")
