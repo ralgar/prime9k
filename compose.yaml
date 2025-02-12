@@ -1,0 +1,23 @@
+---
+services:
+
+  prime9k-cpu:
+    build: .
+    container_name: prime9k-cpu
+    profiles:
+      - cpu
+    command: prime9k -v -d cpu 2305843009213693951
+
+  prime9k-gpu:
+    build: .
+    container_name: prime9k-gpu
+    profiles:
+      - gpu
+    command: prime9k -v -d gpu 2305843009213693951
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all
+              capabilities: [gpu]
