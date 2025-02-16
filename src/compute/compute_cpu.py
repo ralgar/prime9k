@@ -1,7 +1,7 @@
 import math
 import multiprocessing
 
-from compute_base import ComputeBase
+from compute.compute_base import ComputeBase
 
 
 class ComputeCPU(ComputeBase):

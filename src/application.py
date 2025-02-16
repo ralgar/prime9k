@@ -5,8 +5,8 @@ import time
 
 import cupy
 
-from compute_cpu import ComputeCPU
-from compute_gpu import ComputeGPU
+from compute.compute_cpu import ComputeCPU
+from compute.compute_gpu import ComputeGPU
 
 
 APPLICATION_NAME = "Primality Tester 9000"

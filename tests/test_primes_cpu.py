@@ -3,7 +3,7 @@ from typing import List
 import pytest
 
 from common.generators import generate_primes, generate_random_number
-from compute_cpu import ComputeCPU
+from compute.compute_cpu import ComputeCPU
 
 
 cpu = ComputeCPU()

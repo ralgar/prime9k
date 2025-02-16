@@ -3,7 +3,7 @@ from typing import List
 import pytest
 
 from common.generators import generate_primes, generate_random_number
-from compute_gpu import ComputeGPU
+from compute.compute_gpu import ComputeGPU
 
 
 gpu = ComputeGPU()

@@ -3,7 +3,7 @@ import math
 
 import cupy as cp
 
-from compute_base import ComputeBase
+from compute.compute_base import ComputeBase
 
 
 class ComputeGPU(ComputeBase):
