@@ -66,6 +66,10 @@ class ComputeCPU(ComputeBase):
         by either 2 or 3.
         """
 
+        # Make sure our start is aligned to the next 6k-1 number
+        if start % 6 != 5:
+            start += (5 - start % 6)
+
         for i in range(start, end, 6):
             if n % i == 0 or n % (i + 2) == 0:
                 return False
