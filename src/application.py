@@ -10,6 +10,7 @@ from compute.compute_gpu import ComputeGPU
 
 
 APPLICATION_NAME = "Primality Tester 9000"
+APPLICATION_NAME_SHORT = "prime9k"
 
 
 class Application:
@@ -24,7 +25,7 @@ class Application:
             log_level = logging.DEBUG
 
         logging.basicConfig(level=log_level, force=True, stream=sys.stdout,
-                            format=f"[%(asctime)s] [{APPLICATION_NAME}] [%(levelname)s] %(message)s")
+                            format=f"[%(asctime)s] [{APPLICATION_NAME_SHORT}] [%(levelname)s] %(message)s")
 
         # Auto-select compute system, or allow override.
         logging.info(f"Using device: {args.device.upper()}")
@@ -43,7 +44,7 @@ class Application:
         Parses command line arguments/options.
         """
 
-        parser = argparse.ArgumentParser(description=(APPLICATION_NAME))
+        parser = argparse.ArgumentParser(description=f'{APPLICATION_NAME} ({APPLICATION_NAME_SHORT})')
         parser.add_argument('INTEGER', type=str, help=f'a single integer to test (max value: {sys.maxsize})')
         parser.add_argument('-d', '--device', choices=['cpu', 'gpu'], default='gpu', help='override selected compute device')
         parser.add_argument('-v', '--verbose', action='store_true', help='show more detailed logs')
