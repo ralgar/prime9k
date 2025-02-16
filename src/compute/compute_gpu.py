@@ -12,7 +12,7 @@ class ComputeGPU(ComputeBase):
     """
 
     def __init__(self):
-        logging.info(f'Using CuPy version: {cp.__version__}')
+        logging.debug(f'Using CuPy version: {cp.__version__}')
 
     def is_prime(self, n: int) -> bool:
         """
@@ -30,6 +30,7 @@ class ComputeGPU(ComputeBase):
         n = int(n)
 
         # Handle simple cases directly.
+        logging.debug('Testing simple cases')
         if n < 2:
             return False
         if n in (2, 3):
@@ -47,6 +48,7 @@ class ComputeGPU(ComputeBase):
         batch_size = 1_000_000
         offset = 0
 
+        logging.debug('Executing batches')
         while True:
             # Create a batch of indices on the GPU.
             indices = cp.arange(offset, offset + batch_size, dtype=cp.int64)

@@ -1,3 +1,4 @@
+import logging
 import math
 import multiprocessing
 
@@ -25,6 +26,7 @@ class ComputeCPU(ComputeBase):
         n = int(n)
 
         # Handle simple cases directly.
+        logging.debug('Testing simple cases')
         if n < 2:
             return False
         if n in (2, 3):
@@ -37,13 +39,16 @@ class ComputeCPU(ComputeBase):
         batch_size = 1_000_000
         num_workers = multiprocessing.cpu_count()
 
+        logging.debug('Initializing multiprocessing pool')
         with multiprocessing.Pool(num_workers) as pool:
             tasks = []
+            logging.debug('Generating task list')
             for start in range(5, sqrt_n + 1, batch_size):
                 end = min(start + batch_size, sqrt_n + 1)
                 tasks.append((n, start, end))
 
             # Execute
+            logging.debug('Executing task list')
             results = pool.starmap(self.is_prime_batch, tasks)
 
             # If any batch finds a factor, the number isn't prime.

@@ -27,6 +27,8 @@ class Application:
         logging.basicConfig(level=log_level, force=True, stream=sys.stdout,
                             format=f"[%(asctime)s] [{APPLICATION_NAME_SHORT}] [%(levelname)s] %(message)s")
 
+        logging.debug("Initializing application")
+
         # Auto-select compute system, or allow override.
         logging.info(f"Using device: {args.device.upper()}")
         if args.device == 'gpu' and cupy.cuda.is_available():
@@ -36,8 +38,6 @@ class Application:
 
         if args.INTEGER:
             self._integer = args.INTEGER
-
-        logging.info("Initialization complete")
 
     def parse_args(self) -> argparse.Namespace:
         """
