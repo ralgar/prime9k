@@ -12,7 +12,7 @@ A brute force primality testing program written in Python. It uses a 6k +/- 1
 
 - `python>=3.8,<3.13`
 - `pip`
-- CUDA (optional, for GPU accleration)
+- CUDA (optional, for GPU acceleration)
 
 ### Installation
 
