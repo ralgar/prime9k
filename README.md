@@ -85,7 +85,7 @@ If you don't want to mess with venvs and dependencies, a single-command Docker
 Prime9k comes with a dynamic testing framework that leverages a well-known
  algebra library ([SymPy](https://www.sympy.org/en/index.html)) to generate
  valid prime and composite numbers at runtime. A wide range of values are
- tested (up to **14,000** combined composite and prime numbers), and both the
+ tested (over **20,000** combined prime and composite numbers), and both the
  CPU and GPU compute algorithms are tested.
 
 After following the [Manual Installation](#manual-installation) steps:

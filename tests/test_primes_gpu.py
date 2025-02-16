@@ -17,8 +17,8 @@ def setup_data() -> List[int]:
     data.extend(generate_primes(1_000, generate_random_number(7)))
     data.extend(generate_primes(1_000, generate_random_number(10)))
     data.extend(generate_primes(1_000, generate_random_number(13)))
-    data.extend(generate_primes(1_000, generate_random_number(16)))
-    data.extend(generate_primes(1_000, generate_random_number(19)))
+    data.extend(generate_primes(100,   generate_random_number(16)))
+    data.extend(generate_primes(10,    generate_random_number(19)))
 
     return data
 

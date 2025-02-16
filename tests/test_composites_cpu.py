@@ -12,13 +12,13 @@ cpu = ComputeCPU()
 def setup_data() -> List[int]:
     data = []
 
-    data.extend(generate_composites(10, 1))
-    data.extend(generate_composites(10, generate_random_number(4)))
-    data.extend(generate_composites(10, generate_random_number(7)))
-    data.extend(generate_composites(10, generate_random_number(10)))
-    data.extend(generate_composites(10, generate_random_number(13)))
-    data.extend(generate_composites(10, generate_random_number(16)))
-    data.extend(generate_composites(10, generate_random_number(19)))
+    data.extend(generate_composites(1000, 1))
+    data.extend(generate_composites(1000, generate_random_number(4)))
+    data.extend(generate_composites(1000, generate_random_number(7)))
+    data.extend(generate_composites(1000, generate_random_number(10)))
+    data.extend(generate_composites(1000, generate_random_number(13)))
+    data.extend(generate_composites(100,  generate_random_number(16)))
+    data.extend(generate_composites(10,   generate_random_number(19)))
 
     return data
 

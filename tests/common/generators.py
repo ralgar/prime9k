@@ -49,7 +49,7 @@ def generate_random_number(length: int) -> int:
     # Set upper and lower bounds such that we can multiply by 6 without exceeding
     #  the defined length. Ex. length = 4, lower = 1000, upper = 1500.
     lower_bound = 10 ** (length - 1)
-    upper_bound = 10 ** (length - 1) * 1.5
+    upper_bound = round(10 ** (length - 1) * 1.5)
 
     # Generate the random number in the given range
     return random.randint(lower_bound, upper_bound)
